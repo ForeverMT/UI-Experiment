@@ -1,0 +1,31 @@
+<frameset rows="30%,*">
+<!--一个框架的组成需要主文件和HTML文件，该文件就是一个框架的主文件-->
+
+    <!--主文件是由frameset标签和和frame标签组成的-->
+
+    <!--在frameset标签中需要添加属性，用于决定框架的布局，
+    其中rows表示垂直方向布局，
+    rows后的第一个参数表示第一个框架所占整个页面的百分比，
+    第二个参数如果使用了*则表示第二个框架充满剩下的所有高度
+    cols属性的作用与rows类似，区别是cols是基于水平方向布局的
+    有几个frame就要用到几个参数-->
+
+    <!--一个frameset标签（包括开始标签和闭合标签应该对应两个frame标签）-->
+
+    <frame src="Topic.html">
+    <!--一个frame标签对应一个HTML文件，即将src属性后面的文件填入划分的区域之中-->
+    <frameset cols="15%,*">...
+
+        <frame src="Index.html">
+    <!--frame标签的布局顺序遵从从上到下，从左到右的顺序-->
+        <frame src="HomePage.html" name="showFrame">
+       <!--当使用了name和target时，target的参数代表它所指向的框架名-->
+
+
+</frameset>
+<!--frameset标签可以嵌套，一个frameset嵌套就相当于一个frame标签，相当于把分割后的区域再进行分割-->
+
+</frameset>
+
+[<noframes>您的浏览器不支持显示此网页，建议您用IE浏览器浏览本网页</noframes>]
+<!--noframes标记用于显示当浏览器不支持框架时显示的信息-->
