@@ -3,7 +3,6 @@
     <title>个人信息输入</title>
     <style type="text/css">
         body{
-		color:red;
         font-family:"宋体";
         font-size:16px;
         background-color:#abcdef;
@@ -21,7 +20,7 @@
 		height:162px;
         }
 		#input{
-			border:2px dotted #000;
+			
 			}
         #footer{
 		color:#000;
@@ -38,17 +37,31 @@
     <div id="banner">
         <img src="imgs/banner.jpg" width="800">
     </div>
+    
     	<table width="800"; height="50px">
         	<tr>
         	<td>今天是2015年5月13日</td>
         	<td>现在是14:33:25 P.M.</td>
         	</tr>
      	</table>
-        <div id="input">
+        <div style="border:2px dotted #F00;">
         <h2 align="center">个人信息输入</h2>
         <hr>
+       <table width="800"; height="50px"; >
+        	
+        	<button  style="margin-left:280px;" type="button" >输入信息</button>
+        	<button  style=" margin-left:150px;" type="button">取消</button>
+        	
+     	</table>
+       
+        
+        
     	</div>
         
+        <div style="border:2px dotted #F00; margin-top:3px;">
+        <h4 align="center">请注意,字段前带*的内容为必须填写的内容</h4>
+        </div>
+       
     
     <div id="footer"> Copyright 2015 by 徐鼎</div>
 </div>
