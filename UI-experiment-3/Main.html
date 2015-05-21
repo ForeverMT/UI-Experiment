@@ -139,22 +139,72 @@ function isPhone(str) {
                 <div style="border:1px dashed #F00; padding:5px;">
                     <h2 align="center" style="color:#00F;">个人信息输入</h2>
                     <hr>
-                    <form name="myform">* 姓&nbsp;&nbsp;&nbsp;&nbsp;名：
-                        <input type="text" name="nm">
-                        </br>* 年&nbsp;&nbsp;&nbsp;&nbsp;龄：
-                        <input type="text" style="width:80px;" name="age">(请输入0-120间的数字)</br>* 出&nbsp; 生&nbsp; 地：
-                        <input type="text" style="width:260px;" name="bp">
-                        </br>&nbsp;兴 趣 爱 好 ：
-                        <input type="text" style="width:260px;" name="hobby">
-                        </br>&nbsp;专&nbsp;&nbsp;&nbsp;&nbsp;业：
-                        <input type="text" style="width:260px;" name="major">
-                        </br>* 电&nbsp;&nbsp;&nbsp;&nbsp;话：
-                        <input type="text" style="width:260px;" name="phone">(请输入8位或11位数字)</br>* Email 地 址 ：
-                        <input type="text" style="width:260px;" name="mail">
+                    <form name="myform">
+                        <table>
+                            <tr>
+                                <td>*</td>
+                                <td>姓&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+                                <td>：</td>
+                                <td>
+                                    <input type="text" name="nm">
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>*</td>
+                                <td>出&nbsp; 生&nbsp; 地</td>
+                                <td>：</td>
+                                <td>
+                                    <input type="text" style="width:260px;" name="bp">
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>*</td>
+                                <td>年&nbsp;&nbsp;&nbsp;&nbsp;龄</td>
+                                <td>：</td>
+                                <td>
+                                    <input type="text" style="width:80px;" name="age">(请输入0-120间的数字)</td>
+                            </tr>
+                            <tr>
+                                <td>*</td>
+                                <td>兴 趣 爱 好</td>
+                                <td>：</td>
+                                <td>
+                                    <input type="text" style="width:260px;" name="hobby">
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>*</td>
+                                <td>专&nbsp;&nbsp;&nbsp;&nbsp;业</td>
+                                <td>：</td>
+                                <td>
+                                    <input type="text" style="width:260px;" name="major">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>*</td>
+                                <td>电&nbsp;&nbsp;&nbsp;&nbsp;话</td>
+                                <td>：</td>
+                                <td>
+                                    <input type="text" style="width:260px;" name="phone">(请输入8位或11位数字)</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>*</td>
+                                <td>Email 地 址</td>
+                                <td>：</td>
+                                <td>
+                                    <input type="text" style="width:260px;" name="mail">
+                                </td>
+                            </tr>
+                            
+                        </table>
                         </br>
                         </br>
                         <table width="800" ; height="50px" ;>
-<!--                            <input style="margin-left:280px; color:red;" type="submit" value="提交信息" onClick="onsubmitted()"></input>-->
+                            <!-- <input style="margin-left:280px; color:red;" type="submit" value="提交信息" onClick="onsubmitted()"></input>-->
                             <button style="margin-left:280px; color:red;" type="button" onClick="onsubmitted()">提交信息</button>
                             <input style=" margin-left:150px;color:red;" type="reset" value="清空"></input>
                         </table>
