@@ -59,32 +59,68 @@
                 var bp=parent.document.myform.bp.value;
                 var hobby=parent.document.myform.hobby.value;
                 var major=parent.document.myform.major.value;
-                var phone=new Array(); 
-                phone=parent.document.myform.phone.value;
+                var phone=parent.document.myform.phone.value;
                 var mail=parent.document.myform.mail.value;
                 
+                
+                
                 if (nm.match(" ")||nm=="") {
-                    alert("用户名不能为空！ ");
-                } else if (age<0||age>120||age.match(" ")||age=="") {
+                    alert("用户名不能为空或者含有空格！ ");
+                } 
+                else if (isNaN(age)||age<0||age>120||age.match(" ")||age=="") {
                     alert("请输入正确的年龄！");
-                }else if(bp.match(" ")||bp==""){
-                    alert("出生地不能为空！");
-                }else if(phone.match(" ")||phone.length!=8||phone.length!=11){
+                }
+                else if(!isPlace(bp)){
+                    alert("出生地只能由汉字或英文单词组成！");
+                }
+                else if(!isPhone(phone)){
                     alert("请填写正确的电话号码！");
-                }else if(!mail.match("@")||mail==""||mail.match(" ")){
+                }
+                else if(!isEmail(mail)){
                 alert("请填写正确的Email！");
                 }
                 else{
                    var infowindow=open("","","width=500,height=500");
+                   nm=nm;
+                 age=age;
+                 bp=bp;
+                 hobby=hobby;
+                 major=major;
+                 phone=phone;
+                 mail=mail;
+                   
                     infowindow.document.write("欢迎您！ "+nm+"<br/>");
                     infowindow.document.write("您今年" + age+"岁<br/>");
                     infowindow.document.write("您的出生地是" + bp+"<br/>");
+                    if (hobby!="") {
                     infowindow.document.write("您的兴趣爱好是" + hobby+"<br/>");
-                    infowindow.document.write("您的专业是" + major+"<br/>");
+                    }
+                    if (major!="") {
+                        infowindow.document.write("您的专业是" + major+"<br/>");
+                    }
                     infowindow.document.write("您的电话是" + phone+"<br/>");
                     infowindow.document.write("您的Email是" +mail+"<br/>");
                 }
+                
+                 
             }
+//用正则匹配出生地的函数
+ function isPlace(str) {
+     var model= /^([\u4E00-\u9FA5|a-zA-Z]){1,15}$/;
+     return model.test(str);
+ }   
+//用正则匹配邮箱格式的函数
+function isEmail(str){
+    //{3,15}表示大于等于3次但不超过15次
+    var model=/^[a-zA-Z0-9_-]{1,15}@[a-zA-Z0-9_-]{1,15}(\.[a-zA-Z0-9_-]{1,15}){1,15}$/;
+    return  model.test(str);
+}
+//用正则匹配号码的函数
+function isPhone(str) {
+    var model1=/^[0-9]{8}$/;
+    var model2=/^[0-9]{11}$/;
+    return model1.test(str)||model2.test(str);
+}
         </script>
     </head>
     
@@ -118,7 +154,8 @@
                         </br>
                         </br>
                         <table width="800" ; height="50px" ;>
-                            <input style="margin-left:280px; color:red;" type="submit" value="提交信息" onClick="onsubmitted()"></input>
+<!--                            <input style="margin-left:280px; color:red;" type="submit" value="提交信息" onClick="onsubmitted()"></input>-->
+                            <button style="margin-left:280px; color:red;" type="button" onClick="onsubmitted()">提交信息</button>
                             <input style=" margin-left:150px;color:red;" type="reset" value="清空"></input>
                         </table>
                     </form>
