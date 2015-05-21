@@ -48,11 +48,42 @@
             today.innerHTML="今天是"+year+"年"+month+"月"+day+"日";
             var nowtime=document.getElementById('nowtime');
             nowtime.innerHTML="现在是"+hours+':'+minutes+':'+seconds+" "+apm;
-            
             }
             window.onload=function(){
 //                每隔500毫秒调用一次函数showtime
             	setInterval(showtime,500);
+            };
+            function onsubmitted() {
+                var nm=parent.document.myform.nm.value;
+                var age=parent.document.myform.age.value;
+                var bp=parent.document.myform.bp.value;
+                var hobby=parent.document.myform.hobby.value;
+                var major=parent.document.myform.major.value;
+                var phone=new Array(); 
+                phone=parent.document.myform.phone.value;
+                var mail=parent.document.myform.mail.value;
+                
+                if (nm.match(" ")||nm=="") {
+                    alert("用户名不能为空！ ");
+                } else if (age<0||age>120||age.match(" ")||age=="") {
+                    alert("请输入正确的年龄！");
+                }else if(bp.match(" ")||bp==""){
+                    alert("出生地不能为空！");
+                }else if(phone.match(" ")||phone.length!=8||phone.length!=11){
+                    alert("请填写正确的电话号码！");
+                }else if(!mail.match("@")||mail==""||mail.match(" ")){
+                alert("请填写正确的Email！");
+                }
+                else{
+                   var infowindow=open("","","width=500,height=500");
+                    infowindow.document.write("欢迎您！ "+nm+"<br/>");
+                    infowindow.document.write("您今年" + age+"岁<br/>");
+                    infowindow.document.write("您的出生地是" + bp+"<br/>");
+                    infowindow.document.write("您的兴趣爱好是" + hobby+"<br/>");
+                    infowindow.document.write("您的专业是" + major+"<br/>");
+                    infowindow.document.write("您的电话是" + phone+"<br/>");
+                    infowindow.document.write("您的Email是" +mail+"<br/>");
+                }
             }
         </script>
     </head>
@@ -64,7 +95,7 @@
             </div>
             <table style="color:#F00; font-size:20px;" width="800" ; height="50px">
                 <tr>
-                    <td id ="today"> </td>
+                    <td id="today"></td>
                     <td id="nowtime"></td>
                 </tr>
             </table>
@@ -72,29 +103,25 @@
                 <div style="border:1px dashed #F00; padding:5px;">
                     <h2 align="center" style="color:#00F;">个人信息输入</h2>
                     <hr>
-                    <form>* 姓&nbsp;&nbsp;&nbsp;&nbsp;名：
-                        <input type="text">
+                    <form name="myform">* 姓&nbsp;&nbsp;&nbsp;&nbsp;名：
+                        <input type="text" name="nm">
+                        </br>* 年&nbsp;&nbsp;&nbsp;&nbsp;龄：
+                        <input type="text" style="width:80px;" name="age">(请输入0-120间的数字)</br>* 出&nbsp; 生&nbsp; 地：
+                        <input type="text" style="width:260px;" name="bp">
+                        </br>&nbsp;兴 趣 爱 好 ：
+                        <input type="text" style="width:260px;" name="hobby">
+                        </br>&nbsp;专&nbsp;&nbsp;&nbsp;&nbsp;业：
+                        <input type="text" style="width:260px;" name="major">
+                        </br>* 电&nbsp;&nbsp;&nbsp;&nbsp;话：
+                        <input type="text" style="width:260px;" name="phone">(请输入8位或11位数字)</br>* Email 地 址 ：
+                        <input type="text" style="width:260px;" name="mail">
+                        </br>
+                        </br>
+                        <table width="800" ; height="50px" ;>
+                            <input style="margin-left:280px; color:red;" type="submit" value="提交信息" onClick="onsubmitted()"></input>
+                            <input style=" margin-left:150px;color:red;" type="reset" value="清空"></input>
+                        </table>
                     </form>
-                    <form>* 年&nbsp;&nbsp;&nbsp;&nbsp;龄：
-                        <input type="text" style="width:80px;">(请输入0-120间的数字)</form>
-                    <form>* 出&nbsp; 生&nbsp; 地：
-                        <input type="text" style="width:260px;">
-                    </form>
-                    <form>&nbsp;兴 趣 爱 好 ：
-                        <input type="text" style="width:260px;">
-                    </form>
-                    <form>&nbsp;专&nbsp;&nbsp;&nbsp;&nbsp;业：
-                        <input type="text" style="width:260px;">
-                    </form>
-                    <form>* 电&nbsp;&nbsp;&nbsp;&nbsp;话：
-                        <input type="text" style="width:260px;">(请输入8位或11位数字)</form>
-                    <form>* Email 地 址 ：
-                        <input type="text" style="width:260px;">
-                    </form>
-                    <table width="800" ; height="50px" ;>
-                        <button style="margin-left:280px; color:red;" type="button">提交信息</button>
-                        <button style=" margin-left:150px;color:red;" type="button">清空</button>
-                    </table>
                     </br>
                     </br>
                 </div>
